@@ -7,10 +7,10 @@
         {
             "name": "LacaTruyen",
             "author": "Zela",
-            "path": "https://github.com/Minhhiep24/lacatruyen-vbook/raw/refs/heads/main/lacatruyen/plugin.zip",
+            "path": "https://raw.githubusercontent.com/Minhhiep24/lacatruyen-vbook/main/lacatruyen/plugin.zip",
             "version": 3,
             "source": "https://lacatruyen.com",
-            "icon": "https://github.com/Minhhiep24/lacatruyen-vbook/raw/refs/heads/main/lacatruyen/icon.png",
+            "icon": "https://raw.githubusercontent.com/Minhhiep24/lacatruyen-vbook/main/lacatruyen/icon.png",
             "description": "Đọc truyện trên lacatruyen.com",
             "type": "novel",
             "locale": "vi_VN"
