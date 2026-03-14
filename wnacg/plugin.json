@@ -1,0 +1,21 @@
+{
+  "metadata": {
+    "name": "Wnacg",
+    "author": "Mrzeon",
+    "version": 1,
+    "source": "https://wnacg.com",
+    "regexp": "(www\\.)?wnacg\\.com/photos-index-aid-\\d+\\.html",
+    "description": "Đọc truyện tranh trên Wnacg - High Resolution Mode",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "comic"
+  },
+  "script": {
+    "home": "home.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "gen": "gen.js",
+    "chap": "chap.js"
+  }
+}
