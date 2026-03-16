@@ -28,6 +28,18 @@
             "tag": "nsfw"
         },
         {
+            "name": "Damcn",
+            "author": "Zela",
+            "path": "https://raw.githubusercontent.com/Minhhiep24/lacatruyen-vbook/main/damcn/plugin.zip",
+            "version": 2,
+            "source": "https://damconuong.plus",
+            "icon": "https://raw.githubusercontent.com/Minhhiep24/lacatruyen-vbook/main/damcn/icon.png",
+            "description": "Đọc truyện trên trang Truyện Dâm cô nương",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "wnacg",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Minhhiep24/lacatruyen-vbook/main/wnacg/plugin.zip",
