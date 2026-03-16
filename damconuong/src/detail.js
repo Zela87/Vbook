@@ -1,6 +1,5 @@
 load('config.js');
 
-
 // Hàm chính để lấy thông tin chi tiết truyện
 function execute(url) {
     // Chuẩn hóa URL bằng cách thay thế domain bằng BASE_URL

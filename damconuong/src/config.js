@@ -1,4 +1,3 @@
-// Định nghĩa URL cơ sở của trang web truyện
 let BASE_URL = 'https://damconuong.plus';
 
 // Thử lấy URL cấu hình từ CONFIG_URL nếu có
@@ -9,7 +8,6 @@ try {
 } catch (error) {
     // Bỏ qua lỗi nếu CONFIG_URL không tồn tại
 }
-
 // Hàm bypass để xử lý cookie từ trang web
 function bypass(url, doc) {
     // Tìm cookie trong HTML của trang
