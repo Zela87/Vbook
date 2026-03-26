@@ -14,7 +14,7 @@ function execute(url) {
         response.select(".truyen-meta span:nth-child(2) a").forEach(genre => {
             genres.push({
                 title: genre.text(),
-                input: "https://sstruyen.com.vn" + genre.attr("href"),
+                input: "https://kho-truyen-chu.sbs" + genre.attr("href"),
                 script: "gen.js"
             });
         });
@@ -24,7 +24,7 @@ function execute(url) {
 
         // Lấy ảnh bìa (nối host vì src là link tương đối)
         let cover = response.select(".truyen-cover img").attr("src");
-        if (cover && !cover.startsWith("http")) cover = "https://sstruyen.com.vn" + cover;
+        if (cover && !cover.startsWith("http")) cover = "https://khotruyenchu.sbs" + cover;
 
         // Kiểm tra trạng thái Full hay Đang ra
         let status = response.select(".truyen-meta").text();
@@ -37,7 +37,7 @@ function execute(url) {
             cover: cover,
             genres: genres,
             ongoing: ongoing,
-            host: "https://sstruyen.com.vn"
+            host: "https://khotruyenchu.sbs"
         });
     }
     return null;

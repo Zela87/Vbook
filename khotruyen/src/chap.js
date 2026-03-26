@@ -1,7 +1,7 @@
 function execute(url) {
     let response = Http.get(url).html();
     if (response) {
-        let content = response.select(".truyen");
+        let content = response.select(".entry-content");
 
         // Loại bỏ các thành phần rác nếu có
         content.select("script, style, div, ins").remove();

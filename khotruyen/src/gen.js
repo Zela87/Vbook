@@ -22,7 +22,7 @@ function execute(url, page) {
                     link: a.attr("href"),
                     cover: cover,
                     description: "", // Trang mới không để mô tả ở danh sách ngoài
-                    host: "https://sstruyen.com.vn" 
+                    host: "https://khotruyenchu.sbs" 
                 });
             }
         });
