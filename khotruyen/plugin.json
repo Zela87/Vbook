@@ -2,7 +2,7 @@
     "metadata": {
         "name": "Khotruyenchu",
         "author": "Zela",
-        "version": 6,
+        "version": 7,
         "source": "https://khotruyenchu.sbs",
         "regexp": "khotruyenchu\\.sbs/([^/]+)/?$",
         "type": "text",
