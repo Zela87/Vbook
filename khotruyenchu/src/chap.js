@@ -1,4 +1,4 @@
-load('config.js');
+load("config.js");
 
 function execute(url) {
     // Chuẩn hóa URL
@@ -11,30 +11,30 @@ function execute(url) {
     var content = doc.select(".entry-content").first();
     if (!content) return Response.error("Không tìm thấy nội dung chương");
 
-    // Xóa các phần tử không phải nội dung truyện:
-    // - .story-navigation: thanh điều hướng chương trước/sau
-    // - .reading-tools-bar: thanh công cụ cỡ chữ/giao diện
-    // - .gmqhbpr, span[style*="overflow:hidden"]: watermark ẩn chống copy
+    // Xóa các thành phần thừa
     content.select(".story-navigation, .reading-tools-bar").remove();
     content.select("span[style*='overflow:hidden']").remove();
 
     // Lấy toàn bộ text từ các đoạn <p>
     var paragraphs = content.select("p");
-    var lines = [];
+    var data = [];
 
     for (var i = 0; i < paragraphs.size(); i++) {
         var text = paragraphs.get(i).text().trim();
         if (text.length > 0) {
-            lines.push(text);
+            data.push(text);
         }
     }
 
-    if (lines.length === 0) {
+    if (data.length === 0) {
         // Fallback: lấy toàn bộ text nếu không có thẻ <p>
         var fallback = content.text().trim();
         if (fallback.length === 0) return Response.error("Chương không có nội dung");
-        lines.push(fallback);
+        
+        // Thay vì join, ta đưa vào mảng để đồng nhất kiểu dữ liệu
+        data = [fallback];
     }
 
-    return Response.success(lines.join("\n\n"));
+    // SỬA TẠI ĐÂY: Trả về mảng data trực tiếp, không dùng .join()
+    return Response.success(data);
 }
