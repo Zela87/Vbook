@@ -14,7 +14,7 @@ function execute(url) {
         response.select(".truyen-meta span:nth-child(2) a").forEach(genre => {
             genres.push({
                 title: genre.text(),
-                input: "https://kho-truyen-chu.sbs" + genre.attr("href"),
+                input: "https://khotruyenchu.sbs" + genre.attr("href"),
                 script: "gen.js"
             });
         });
