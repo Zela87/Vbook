@@ -1,51 +1,47 @@
-load("config.js");
+// Định nghĩa URL cơ sở của trang web truyện
+let BASE_URL = 'https://khotruyenchu.sbs';
+
+// Thử lấy URL cấu hình từ CONFIG_URL nếu có
+try {
+    if (CONFIG_URL) {
+        BASE_URL = CONFIG_URL;
+    }
+} catch (error) {
+    // Bỏ qua lỗi nếu CONFIG_URL không tồn tại
+}
+
+
 
 function execute(url) {
-    // 1. Chuẩn hóa URL
     url = url.indexOf('http') === 0 ? url : BASE_URL + url;
 
-    // 2. Request lần đầu với đầy đủ Header
-    var response = fetch(url, {
-        headers: {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-            "Referer": BASE_URL,
-            "X-Requested-With": "XMLHttpRequest"
-        }
-    });
+    var response = Http.get(url);
+    if (!response) return Response.error("Request null");
 
-    if (!response.ok) return Response.error("HTTP Error: " + response.status);
-
-    // 3. Lấy nội dung HTML và gọi hàm bypass
     var doc = response.html();
-    doc = bypass(url, doc); 
+    if (!doc) return Response.error("Không lấy được HTML");
 
-    // Lấy container nội dung chương
+    doc = bypass(url, doc);
+    if (!doc) return Response.error("Bypass thất bại");
+
     var content = doc.select(".entry-content").first();
-    if (!content) return Response.error("Không tìm thấy nội dung chương");
+    if (!content) return Response.error("Không tìm thấy nội dung");
 
-    // Xóa các thành phần thừa
     content.select(".story-navigation, .reading-tools-bar").remove();
-    content.select("span[style*='overflow:hidden']").remove();
 
-    // Lấy toàn bộ text từ các đoạn <p>
     var paragraphs = content.select("p");
     var data = [];
 
     for (var i = 0; i < paragraphs.size(); i++) {
         var text = paragraphs.get(i).text().trim();
-        if (text.length > 0) {
-            data.push(text);
-        }
+        if (text.length > 0) data.push(text);
     }
 
     if (data.length === 0) {
-        // Fallback: lấy toàn bộ text nếu không có thẻ <p>
         var fallback = content.text().trim();
-        if (fallback.length === 0) return Response.error("Chương không có nội dung");
-        
+        if (!fallback) return Response.error("Chương rỗng");
         data = [fallback];
     }
 
-    // Trả về mảng data trực tiếp
     return Response.success(data);
 }
