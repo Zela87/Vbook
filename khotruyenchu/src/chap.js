@@ -4,7 +4,11 @@ function execute(url) {
     // Chuẩn hóa URL
     url = url.indexOf('http') === 0 ? url : BASE_URL + url;
 
-    var doc = bypass(url, Http.get(url).html());
+    // Lấy nội dung trực tiếp, bỏ qua hàm bypass
+    var response = Http.get(url);
+    if (!response) return Response.error("Không thể kết nối đến máy chủ");
+    
+    var doc = response.html();
     if (!doc) return Response.error("Không tải được dữ liệu");
 
     // Lấy container nội dung chương
@@ -31,10 +35,9 @@ function execute(url) {
         var fallback = content.text().trim();
         if (fallback.length === 0) return Response.error("Chương không có nội dung");
         
-        // Thay vì join, ta đưa vào mảng để đồng nhất kiểu dữ liệu
         data = [fallback];
     }
 
-    // SỬA TẠI ĐÂY: Trả về mảng data trực tiếp, không dùng .join()
+    // Trả về mảng data trực tiếp
     return Response.success(data);
 }
