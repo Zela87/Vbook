@@ -1,33 +1,32 @@
-load('config.js');
+load("config.js");
 
 function execute(key, page) {
     if (!page) page = '1';
-    var url = BASE_URL + '/tim-kiem?sort=-updated_at&filter%5Bname%5D=' + encodeURIComponent(key) + '&filter%5Bstatus%5D=2,1&page=' + page;
+    // Giả sử key = "da-vo-cuong"
+var url = BASE_URL + '/truyen/' + key + '/';
     var doc = bypass(url, Http.get(url).html());
 
     if (!doc) return Response.error("Không tải được dữ liệu");
 
     var list = [];
 
-    doc.select('.grid .w-full').forEach(function(e) {
-        var cover = e.select('.cover-frame img').attr('src');
-        if (cover.startsWith('//')) cover = 'https:' + cover;
+    doc.select('.home-story-card').forEach(function(e) {
+        var img = e.select('.hs-thumb img').first();
+        var cover = img ? (img.attr('data-src') || img.attr('src')) : '';
+        if (cover && cover.startsWith('//')) cover = 'https:' + cover;
 
-        var name = e.select('h3 a').text().trim();
-        var link = e.select('h3 a').attr('href');
-        var chap = e.select('.flex-shrink-0 a').text().trim();
-        var time = e.select('span.whitespace-nowrap').text().trim();
+        var a = e.select('.hs-title a').first();
 
-        if (name) {
+        if (a) {
             list.push({
-                name: name,
-                link: link,
-                description: chap + ' - ' + time,
+                name: a.text().trim(),
+                link: a.attr('href'),
+                description: '',
                 cover: cover,
                 host: BASE_URL,
-            });
-        }
-    });
+            }); // Đóng ngoặc của list.push
+        } // Đóng ngoặc của if (a)
+    }); // Đóng ngoặc của forEach
 
     var nextHref = doc.select('a[aria-label=Next]').attr('href');
     var nextPage = null;
