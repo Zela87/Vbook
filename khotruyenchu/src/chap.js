@@ -1,15 +1,23 @@
 load("config.js");
 
 function execute(url) {
-    // Chuẩn hóa URL
+    // 1. Chuẩn hóa URL
     url = url.indexOf('http') === 0 ? url : BASE_URL + url;
 
-    // Lấy nội dung trực tiếp, bỏ qua hàm bypass
-    var response = Http.get(url);
-    if (!response) return Response.error("Không thể kết nối đến máy chủ");
-    
+    // 2. Request lần đầu với đầy đủ Header
+    var response = fetch(url, {
+        headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+            "Referer": BASE_URL,
+            "X-Requested-With": "XMLHttpRequest"
+        }
+    });
+
+    if (!response.ok) return Response.error("HTTP Error: " + response.status);
+
+    // 3. Lấy nội dung HTML và gọi hàm bypass
     var doc = response.html();
-    if (!doc) return Response.error("Không tải được dữ liệu");
+    doc = bypass(url, doc); 
 
     // Lấy container nội dung chương
     var content = doc.select(".entry-content").first();
