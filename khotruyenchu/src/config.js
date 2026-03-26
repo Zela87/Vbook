@@ -1,5 +1,5 @@
 // Định nghĩa URL cơ sở của trang web truyện
-let BASE_URL = 'https://damconuong.plus';
+let BASE_URL = 'https://khotruyenchu.sbs';
 
 // Thử lấy URL cấu hình từ CONFIG_URL nếu có
 try {
