@@ -22,9 +22,16 @@ function execute(url) {
         // Lấy mô tả (nội dung giới thiệu truyện)
         let description = response.select(".truyen-desc").html();
 
-        // Lấy ảnh bìa (nối host vì src là link tương đối)
-        let cover = response.select(".truyen-cover img").attr("src");
-        if (cover && !cover.startsWith("http")) cover = "https://khotruyenchu.sbs" + cover;
+        // Lấy thẻ img đầu tiên trong div .truyen-cover
+let img = response.select(".truyen-cover img").first();
+
+// Ưu tiên lấy data-src (do trang dùng lazy load), nếu không có thì lấy src
+let cover = img ? (img.attr("data-src") || img.attr("src")) : "";
+
+// Kiểm tra và nối host nếu link ảnh là link tương đối (bắt đầu bằng /)
+if (cover && cover.startsWith("/")) {
+    cover = "https://khotruyenchu.sbs" + cover;
+}
 
         // Kiểm tra trạng thái Full hay Đang ra
         let status = response.select(".truyen-meta").text();
