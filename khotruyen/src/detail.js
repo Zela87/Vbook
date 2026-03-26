@@ -1,41 +1,43 @@
 function execute(url) {
-    // SSTruyen đôi khi cần User-Agent để tránh bị chặn
     let response = Http.get(url).html();
     
     if (response) {
-        // Lấy tên truyện
+        // 1. Lấy tên truyện
         let name = response.select(".truyen-title").text();
         
-        // Lấy tác giả (tìm trong thẻ <b>Tác giả:</b> rồi lấy text của thẻ <a> sau nó)
-        let author = response.select(".truyen-meta span:first-child a").text();
+        // 2. Lấy tác giả (Lấy text trong thẻ a của span đầu tiên trong truyen-meta)
+        let author = response.select(".truyen-meta span").first().select("a").text();
         
-        // Lấy thể loại (duyệt qua các thẻ a trong li có class li--genres)
+        // 3. Lấy thể loại (Duyệt qua các thẻ a trong span thứ 2 của truyen-meta)
         let genres = [];
-        response.select(".truyen-meta span:nth-child(2) a").forEach(genre => {
-            genres.push({
-                title: genre.text(),
-                input: "https://khotruyenchu.sbs" + genre.attr("href"),
-                script: "gen.js"
+        let genreSpans = response.select(".truyen-meta span");
+        if (genreSpans.size() >= 2) {
+            genreSpans.get(1).select("a").forEach(genre => {
+                let href = genre.attr("href");
+                genres.push({
+                    title: genre.text().replace(" - ", ""), // Xóa dấu gạch ngang nếu có
+                    input: href.indexOf('http') === 0 ? href : "https://khotruyenchu.sbs" + href,
+                    script: "gen.js"
+                });
             });
-        });
+        }
 
-        // Lấy mô tả (nội dung giới thiệu truyện)
+        // 4. Lấy mô tả
         let description = response.select(".truyen-desc").html();
 
-        // Lấy thẻ img đầu tiên trong div .truyen-cover
-let img = response.select(".truyen-cover img").first();
+        // 5. Lấy ảnh bìa (Xử lý Lazy Load như đã thảo luận)
+        let img = response.select(".truyen-cover img").first();
+        let cover = img ? (img.attr("data-src") || img.attr("src")) : "";
+        if (cover && cover.startsWith("/")) {
+            cover = "https://khotruyenchu.sbs" + cover;
+        }
 
-// Ưu tiên lấy data-src (do trang dùng lazy load), nếu không có thì lấy src
-let cover = img ? (img.attr("data-src") || img.attr("src")) : "";
-
-// Kiểm tra và nối host nếu link ảnh là link tương đối (bắt đầu bằng /)
-if (cover && cover.startsWith("/")) {
-    cover = "https://khotruyenchu.sbs" + cover;
-}
-
-        // Kiểm tra trạng thái Full hay Đang ra
-        let status = response.select(".truyen-meta").text();
-        let ongoing = status.toLowerCase().indexOf("full") === -1;
+        // 6. Kiểm tra trạng thái (Lấy text ở span thứ 3: "Tình trạng: ...")
+        let status = "";
+        if (genreSpans.size() >= 3) {
+            status = genreSpans.get(2).text().toLowerCase();
+        }
+        let ongoing = status.indexOf("hoàn thành") === -1 && status.indexOf("full") === -1;
 
         return Response.success({
             name: name,
