@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "name": "SSTruyện",
+    "author": "Zela",
+    "version": 1,
+    "source": "https://sstruyen.com.vn",
+    "regexp": "sstruyen\\.(com\\.vn)/truyen/.*",
+    "description": "Đọc truyện trên sstruyen.com.vn",
+    "locale": "vi_VN",
+    "language": "javascript",
+    "type": "novel"
+  },
+  "script": {
+    "home": "home.js",
+    "genre": "genre.js",
+    "page": "page.js",
+    "detail": "detail.js",
+    "search": "search.js",
+    "toc": "toc.js",
+    "chap": "chap.js"
+  }
+}

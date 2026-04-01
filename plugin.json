@@ -49,6 +49,17 @@
             "type": "comic",
             "locale": "vi_VN",
             "tag": "nsfw"
+        },
+        {
+            "name": "SS Truyện",
+            "author": "Zela",
+            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/sstruyen-zela/plugin.zip",
+            "version": 1,
+            "source": "https://sstruyen.com.vn",
+            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/sstruyen-zela/icon.png",
+            "description": "Đọc truyện trên trang SS Truyện",
+            "type": "novel",
+            "locale": "vi_VN"
         }
     ]
 }

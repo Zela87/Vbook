@@ -1,0 +1,1 @@
+var BASE_URL = "https://sstruyen.com.vn";

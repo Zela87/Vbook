@@ -1,0 +1,49 @@
+function parseNovelList(doc) {
+    let novelList = [];
+    let items = doc.select("div.item");
+    if (items.isEmpty()) {
+        items = doc.select("a.story-list-item, .home-story-card, .entry-card, article.post");
+    }
+    if (items.isEmpty()) {
+        items = doc.select(".ct-container-fluid .entries article");
+    }
+
+    for (let i = 0; i < items.size(); i++) {
+        let item = items.get(i);
+        let titleEl = item.select("h3 a").first();
+        if (!titleEl) titleEl = item.select("h3.story-list-title, .hs-title a, .entry-title a").first();
+        if (!titleEl && item.tagName() === "a") titleEl = item;
+        
+        let name = titleEl ? titleEl.text().trim() : "";
+        let link = "";
+        if (item.tagName() === "a") {
+            link = item.attr("href");
+        } else {
+            link = titleEl ? titleEl.attr("href") : "";
+        }
+        
+        let coverEl = item.select("a.cover img, img").first();
+        let cover = "";
+        if (coverEl) {
+            cover = coverEl.attr("data-src") || coverEl.attr("data-lazy-src") || coverEl.attr("src");
+        }
+        
+        let authorEl = item.select("a[href*='/tac-gia/']").first();
+        let author = authorEl ? authorEl.text().trim().replace(/✍️\s*/, "") : "";
+        
+        if (name && link) {
+            if (author && name.indexOf(author) > 0) {
+                name = name.split(/✍️|⏱️/)[0].trim();
+            }
+
+            novelList.push({
+                name: name,
+                link: link,
+                cover: cover,
+                description: author ? "Tác giả: " + author : "",
+                host: BASE_URL
+            });
+        }
+    }
+    return novelList;
+}
