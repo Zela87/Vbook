@@ -31,11 +31,11 @@
             "name": "Kho truyện chữ",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu/plugin.zip",
-            "version": 5,
+            "version": 6,
             "source": "https://khotruyenchu.sbs",
             "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu/icon.png",
             "description": "Đọc truyện trên trang Kho truyện chữ",
-            "type": "comic",
+            "type": "novel",
             "locale": "vi_VN"
         },
         {

@@ -2,13 +2,13 @@
   "metadata": {
     "name": "Kho truyện chữ",
     "author": "Zela",
-    "version": 5,
+    "version": 6,
     "source": "https://khotruyenchu.sbs",
     "regexp": "(www.)?khotruyenchu.*?/truyen/[0-9a-z%-]+/?$",
     "description": "Đọc truyện trên trang Kho truyện chữ",
     "locale": "vi_VN",
     "language": "javascript",
-    "type": "comic"
+    "type": "novel"
   },
   "script": {
     "home": "home.js",
