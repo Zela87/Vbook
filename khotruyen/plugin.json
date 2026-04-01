@@ -2,10 +2,10 @@
     "metadata": {
         "name": "Khotruyenchu",
         "author": "Zela",
-        "version": 7,
+        "version": 8,
         "source": "https://khotruyenchu.sbs",
         "regexp": "khotruyenchu\\.sbs/([^/]+)/?$",
-        "type": "text",
+        "type": "novel",
         "description": "Đọc truyện chữ online trên khotruyenchu.sbs",
         "locale": "vi_VN",
         "language": "javascript"
