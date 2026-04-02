@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "name": "SSTruyện",
-    "author": "Zela",
-    "version": 2,
-    "source": "https://sstruyen.com.vn",
-    "regexp": "sstruyen\\.(com\\.vn)/truyen/.*",
-    "description": "Đọc truyện trên sstruyen.com.vn",
+    "name": "Kho Truyện Chữ",
+    "author": "B",
+    "version": 1,
+    "source": "https://khotruyenchu.click",
+    "regexp": "khotruyenchu\\.(sbs|click)/truyen/.*",
+    "description": "Đọc truyện trên khotruyenchu.sbs",
     "locale": "vi_VN",
     "language": "javascript",
     "type": "novel"
