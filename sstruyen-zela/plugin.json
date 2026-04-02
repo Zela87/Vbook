@@ -2,7 +2,7 @@
   "metadata": {
     "name": "SSTruyện",
     "author": "Zela",
-    "version": 2,
+    "version": 3,
     "source": "https://sstruyen.com.vn",
     "regexp": "sstruyen\\.(com\\.vn)/truyen/.*",
     "description": "Đọc truyện trên sstruyen.com.vn",
