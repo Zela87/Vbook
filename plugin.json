@@ -5,7 +5,7 @@
     },
     "data": [
         {
-            "name": "Khotruyenchu",
+            "name": "Kho truyện chữ",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu-zela/plugin.zip",
             "version": 2,
@@ -26,17 +26,6 @@
             "type": "comic",
             "locale": "vi_VN",
             "tag": "nsfw"
-        },
-        {
-            "name": "Kho truyện chữ",
-            "author": "Zela",
-            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu/plugin.zip",
-            "version": 6,
-            "source": "https://khotruyenchu.sbs",
-            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu/icon.png",
-            "description": "Đọc truyện trên trang Kho truyện chữ",
-            "type": "novel",
-            "locale": "vi_VN"
         },
         {
             "name": "wnacg",
