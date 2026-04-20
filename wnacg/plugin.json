@@ -1,7 +1,7 @@
 {
   "metadata": {
     "name": "Wnacg",
-    "author": "Mrzeon",
+    "author": "Zela",
     "version": 1,
     "source": "https://wnacg.com",
     "regexp": "(www\\.)?wnacg\\.com/photos-index-aid-\\d+\\.html",
