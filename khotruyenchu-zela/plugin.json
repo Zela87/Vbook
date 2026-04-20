@@ -2,7 +2,7 @@
   "metadata": {
     "name": "Kho Truyện Chữ",
     "author": "Zela",
-    "version": 1,
+    "version": 2,
     "source": "https://khotruyenchu.me",
     "regexp": "khotruyenchu\\.(sbs|click|me)/truyen/.*",
     "description": "Đọc truyện trên khotruyenchu.me",

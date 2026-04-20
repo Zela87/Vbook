@@ -3,26 +3,23 @@ load ('config.js');
 function execute(url, page) {
     if (!page) page = '1';
     
-    // Xử lý URL để hỗ trợ phân trang nếu cần (ví dụ: ?page=1)
-    let response = fetch(url + "?page=" + page);
+    let fetchUrl = url.includes('?') ? url + "&page=" + page : url + "?page=" + page;
+    let response = fetch(fetchUrl);
 
     if (response.ok) {
         let doc = response.html();
-        let novelList = [];
+        let List = [];
         
-        // Chọn các khối div chứa thông tin truyện
-        // Dựa trên class: "flex gap-4 py-4 group hover:bg-gray-50..."
-        let items = doc.select("div.grid > div.flex.gap-4");
+        let items = doc.select("div.flex.gap-4.group");
         
         items.forEach(item => {
-            let name = item.select("h3").text().trim();
-            let link = item.select("a").first().attr("href");
+            let titleEl = item.select("h3").first();
+            let linkEl = item.select("a").first();
             
-            // Lấy ảnh bìa từ thuộc tính src hoặc srcset
+            // Xử lý Cover
             let coverEl = item.select("img").first();
             let cover = "";
             if (coverEl) {
-                // Ưu tiên lấy link ảnh gốc từ tham số url trong src của Next.js
                 let src = coverEl.attr("src");
                 if (src && src.includes("url=")) {
                     cover = decodeURIComponent(src.split("url=")[1].split("&")[0]);
@@ -31,28 +28,44 @@ function execute(url, page) {
                 }
             }
 
-            // Lấy tên tác giả (nằm cạnh icon lucide-user)
-            let author = item.select(".lucide-user").parents().first().text().trim();
-            
-            // Lấy thông tin số chương và trạng thái
-            let detail = item.select(".lucide-book-open").parents().first().text().trim();
+            // --- SỬA LỖI TẠI ĐÂY ---
+            // Thay vì dùng .parents().first(), ta nhắm vào div chứa icon
+            // Lấy div là cha của icon lucide-user
+            let author = "";
+            let authorEl = item.select("div.flex.items-center.gap-1.5").first(); 
+            if (authorEl) {
+                author = authorEl.text().trim();
+            }
 
-            if (name && link) {
-                novelList.push({
-                    name: name,
+            // Lấy thông tin chi tiết (Số chương + Trạng thái)
+            let detail = "";
+            let detailEl = item.select("div.flex.items-center.gap-1.5.whitespace-nowrap").first();
+            if (detailEl) {
+                detail = detailEl.text().trim();
+            }
+            // -----------------------
+
+            if (titleEl && linkEl) {
+                let link = linkEl.attr("href");
+                List.push({
+                    name: titleEl.text().trim(),
                     link: link.startsWith("http") ? link : BASE_URL + link,
                     cover: cover,
-                    description: author + " | " + detail,
+                    description: author + (detail ? " | " + detail : ""),
                     host: BASE_URL
                 });
             }
         });
 
-        // Kiểm tra phân trang (nếu có các nút chuyển trang ở cuối)
-        // Đây là logic giả định dựa trên cấu trúc thông thường, bạn có thể điều chỉnh sau
-        let next = parseInt(page) + 1;
-        
-        return Response.success(novelList, next.toString());
+        // Phân trang
+        let nextHref = doc.select("a:contains(›)").attr("href");
+        let nextPage = null;
+        if (nextHref) {
+            let match = nextHref.match(/page=(\d+)/);
+            if (match) nextPage = match[1];
+        }
+
+        return Response.success(List, nextPage);
     }
     return null;
 }
