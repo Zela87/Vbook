@@ -1,4 +1,5 @@
-load ('config.js');
+load('config.js');
+
 function execute() {
     let response = fetch(BASE_URL);
     if (response.ok) {

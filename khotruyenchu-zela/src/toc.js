@@ -1,4 +1,4 @@
-load ('config.js');
+load('config.js');
 
 function execute(url) {
     let response = fetch(url);

@@ -1,4 +1,4 @@
-load ('config.js');
+load('config.js');
 
 function execute(url, page) {
     if (!page) page = '1';
