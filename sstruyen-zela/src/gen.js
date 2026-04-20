@@ -1,4 +1,4 @@
-load('config.js');
+load ('config.js');
 load('utils.js');
 
 function execute(url, page) {
