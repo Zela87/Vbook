@@ -64,8 +64,8 @@ function cleanContent(html) {
         .trim();
     
     // Final text-based cleanup
-    res = res.replace(/Bạn đang đọc truyện tại khotruyenchu\.sbs/gi, "");
-    res = res.replace(/Truy cập khotruyenchu\.sbs để đọc truyện không quảng cáo rác/gi, "");
+    res = res.replace(/Bạn đang đọc truyện tại khotruyenchu\.obs/gi, "");
+    res = res.replace(/Truy cập khotruyenchu\.*? để đọc truyện không quảng cáo rác/gi, "");
     
     return res;
 }
