@@ -16,6 +16,17 @@
             "locale": "vi_VN"
         },
         {
+            "name": "Kho truyện chữ Zela",
+            "author": "Zela",
+            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu-space/plugin.zip",
+            "version": 1,
+            "source": "https://khotruyenchu.space",
+            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu-space/icon.png",
+            "description": "Đọc truyện trên khotruyenchu.space",
+            "type": "novel",
+            "locale": "vi_VN"
+        },
+        {
             "name": "Dâm cô nương",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/damconuong/plugin.zip",
