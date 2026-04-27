@@ -1,6 +1,5 @@
 load('config.js');
 
-
 function execute(url) {
     let response = fetch(url);
     if (response.ok) {
