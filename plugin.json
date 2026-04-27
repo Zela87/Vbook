@@ -29,10 +29,10 @@
         {
             "name": "HentaiVNXX",
             "author": "Zela",
-            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvn/plugin.zip",
+            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnxx/plugin.zip",
             "version": 1,
             "source": "https://www.hentaivnxx.com",
-            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvn/icon.png",
+            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnxx/icon.png",
             "description": "Đọc truyện trên trang Truyện Hentaivnxx.com",
             "type": "comic",
             "locale": "vi_VN",
