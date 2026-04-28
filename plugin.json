@@ -39,6 +39,18 @@
             "tag": "nsfw"
         },
         {
+            "name": "Hentaivnx",
+            "author": "Zela",
+            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnx/plugin.zip",
+            "version": 1,
+            "source": "https://www.hentaivnx.live",
+            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnx/icon.png",
+            "description": "Đọc truyện trên trang Truyện Hentaivnx.live",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "Dâm cô nương",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/damconuong/plugin.zip",
