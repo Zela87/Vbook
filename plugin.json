@@ -39,6 +39,18 @@
             "tag": "nsfw"
         },
         {
+            "name": "HentaiVN-social",
+            "author": "Zela",
+            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnxsocial/plugin.zip",
+            "version": 1,
+            "source": "https://hentaivn.social",
+            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnxsocial/icon.png",
+            "description": "Đọc truyện trên trang Truyện Hentaivn.social",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "Hentaivnx",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnx/plugin.zip",
