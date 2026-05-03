@@ -1,5 +1,4 @@
 load('config.js');
-
 function execute(url, page) {
     if (!page) page = '1';
     
@@ -41,11 +40,19 @@ function execute(url, page) {
         }
 
         // Tính toán trang tiếp theo
-        // Madara dùng .nav-links hoặc .pagination. Tìm thẻ a nằm sau thẻ span.current
+        // Tìm link trang tiếp theo trong .nav-links .nav-next a
         let next = "";
-        let nextEl = doc.select(".nav-links .current + a, .pagination .active + li a");
-        if (!nextEl.isEmpty()) {
-            next = (parseInt(page) + 1).toString();
+        let nextEl = doc.select(".nav-links .nav-next a").first();
+        if (nextEl) {
+            let nextUrl = nextEl.attr("href");
+            // Giải phóng số page từ URL (ví dụ: /page/2/ hoặc domain root)
+            let pageMatch = nextUrl.match(/\/page\/(\d+)\//);
+            if (pageMatch) {
+                next = pageMatch[1];
+            } else if (nextUrl.match(/\/$/) && page !== '1') {
+                // Nếu URL là root (không có /page/n/), tức là trang 1
+                next = "1";
+            }
         }
 
         return Response.success(data, next);
