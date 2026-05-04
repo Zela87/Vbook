@@ -1,5 +1,4 @@
 load('config.js');
-
 function execute(url) {
     url = url.replace(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img, BASE_URL);
     let response = fetch(url, {
@@ -11,7 +10,7 @@ function execute(url) {
     if (response.ok) {
         let doc = response.html();
         let data = [];
-        doc.select(".item img").forEach(e => {
+        doc.select(".page-break img").forEach(e => {
             data.push(e.attr("src"));
         });
         return Response.success(data);
