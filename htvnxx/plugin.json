@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "name": "HentaiVnxx",
+    "name": "HentaiVN-XX",
     "author": "Zela",
-    "version": 1,
+    "version": 2,
     "source": "https://www.hentaivnxx.com",
     "regexp": "(www.)?hentaivnxx.*?/truyen-hentai/[0-9a-z%-]+/?$",
     "description": "Đọc truyện trên trang Truyện Hentaivnxx.com",
