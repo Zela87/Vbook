@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "name": "HentaiVN-Live",
+    "name": "HentaiVN-live",
     "author": "Zela",
-    "version": 2,
+    "version": 1,
     "source": "https://www.hentaivnx.live",
     "regexp": "(www.)?hentaivnx.*?/truyen-hentai/[0-9a-z%-]+/?$",
     "description": "Đọc truyện trên trang Truyện Hentaivnx.live",
