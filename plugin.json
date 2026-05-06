@@ -1,11 +1,11 @@
 {
     "metadata": {
-    "author": "Zela",
-    "description": "VBook extension của Zela"
+        "author": "Zela",
+        "description": "VBook extension của Zela"
     },
     "data": [
         {
-            "name": "Kho truyện chữ",
+            "name": "Kho truyện chữ - me",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu-zela/plugin.zip",
             "version": 3,
@@ -16,7 +16,7 @@
             "locale": "vi_VN"
         },
         {
-            "name": "Kho truyện chữ Zela",
+            "name": "Kho truyện chữ - space",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu-space/plugin.zip",
             "version": 1,
@@ -27,10 +27,10 @@
             "locale": "vi_VN"
         },
         {
-            "name": "HentaiVNXX",
+            "name": "HentaiVN-XX",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnxx/plugin.zip",
-            "version": 1,
+            "version": 2,
             "source": "https://www.hentaivnxx.com",
             "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnxx/icon.png",
             "description": "Đọc truyện trên trang Truyện Hentaivnxx.com",
@@ -51,10 +51,10 @@
             "tag": "nsfw"
         },
         {
-            "name": "Hentaivnx",
+            "name": "HentaiVN-live",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnx/plugin.zip",
-            "version": 1,
+            "version": 2,
             "source": "https://www.hentaivnx.live",
             "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/htvnx/icon.png",
             "description": "Đọc truyện trên trang Truyện Hentaivnx.live",
