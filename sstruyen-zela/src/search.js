@@ -1,14 +1,11 @@
 load('config.js');
 load('utils.js');
-
 function execute(key, page) {
     page = page !== undefined ? page : '1';
-
     let fetchUrl = BASE_URL + "/";
     if (page !== '1') {
         fetchUrl += "?paged=" + page;
     }
-
     let response = fetch(fetchUrl, {
         method: "GET",
         queries: {
