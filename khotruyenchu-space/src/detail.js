@@ -1,5 +1,4 @@
 load('config.js');
-
 function execute(url) {
     let response;
     try {
@@ -27,13 +26,9 @@ function execute(url) {
         let descEl = doc.select(".truyen-desc, .entry-content").first();
         let description = descEl ? Html.clean(descEl.html(), ["p", "br", "b", "i", "em", "strong"]) : "";
 
-        // Mặc định ongoing = true; chỉ false khi phát hiện truyện đã hoàn thành
-        let htmlText = doc.html();
-        let ongoing = true;
-        if (htmlText.indexOf("Hoàn thành") >= 0 || htmlText.indexOf("Full") >= 0 
-            || htmlText.indexOf("Hoàn Thành") >= 0 || htmlText.indexOf("Completed") >= 0) {
-            ongoing = false;
-        }
+        // Kiểm tra tình trạng từ .truyen-meta
+        let statusText = doc.select(".truyen-meta").text();
+        let ongoing = statusText.indexOf("Hoàn thành") === -1 && statusText.indexOf("Full") === -1;
 
         let genres = [];
         doc.select("a[href*='/the-loai/']").forEach(function(el) {
