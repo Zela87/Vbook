@@ -27,7 +27,13 @@ function execute(url) {
         let descEl = doc.select(".truyen-desc, .entry-content").first();
         let description = descEl ? Html.clean(descEl.html(), ["p", "br", "b", "i", "em", "strong"]) : "";
 
-        let ongoing = doc.html().indexOf("Còn tiếp") >= 0 || doc.html().indexOf("Đang ra") >= 0;
+        // Mặc định ongoing = true; chỉ false khi phát hiện truyện đã hoàn thành
+        let htmlText = doc.html();
+        let ongoing = true;
+        if (htmlText.indexOf("Hoàn thành") >= 0 || htmlText.indexOf("Full") >= 0 
+            || htmlText.indexOf("Hoàn Thành") >= 0 || htmlText.indexOf("Completed") >= 0) {
+            ongoing = false;
+        }
 
         let genres = [];
         doc.select("a[href*='/the-loai/']").forEach(function(el) {
