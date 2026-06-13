@@ -19,10 +19,10 @@
         {
             "name": "Misskon",
             "author": "Zela",
-            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/misskon/plugin.zip",
+            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/Misskon/plugin.zip",
             "version": 1,
             "source": "https://misskon.com",
-            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/misskon/icon.png",
+            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/Misskon/icon.png",
             "description": "Ngắm gái trên trang Misskon",
             "type": "comic",
             "locale": "vi_VN",
