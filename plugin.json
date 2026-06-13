@@ -5,6 +5,30 @@
     },
     "data": [
         {
+            "name": "Cosplaytele",
+            "author": "Zela",
+            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/cosplaytele/plugin.zip",
+            "version": 1,
+            "source": "https://cosplaytele.com",
+            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/cosplaytele/icon.png",
+            "description": "Ngắm gái trên trang Cosplaytele",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
+            "name": "Misskon",
+            "author": "Zela",
+            "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/misskon/plugin.zip",
+            "version": 1,
+            "source": "https://misskon.com",
+            "icon": "https://raw.githubusercontent.com/Zela87/Vbook/main/misskon/icon.png",
+            "description": "Ngắm gái trên trang Misskon",
+            "type": "comic",
+            "locale": "vi_VN",
+            "tag": "nsfw"
+        },
+        {
             "name": "Kho truyện chữ - me",
             "author": "Zela",
             "path": "https://raw.githubusercontent.com/Zela87/Vbook/main/khotruyenchu-zela/plugin.zip",
