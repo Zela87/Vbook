@@ -1,21 +1,17 @@
-let BASE_URL = 'https://damconuong.lol';
+let BASE_URL = 'https://damconuong.mom';
 
 try {
     if (CONFIG_URL) BASE_URL = CONFIG_URL;
-} catch (e) {}
+} catch (e) { }
 
-/**
- * Hàm bypass xử lý thử thách Cookie bằng Javascript (đặc trưng của một số web truyện)
- */
+
 function bypass(url, doc) {
     var htmlContent = doc.html();
     var cookieMatch = htmlContent.match(/document.cookie="(.*?)"/);
-    
+
     if (cookieMatch) {
-        var cookie = cookieMatch[1].split(';')[0]; // Lấy phần cookie chính
+        var cookie = cookieMatch[1].split(';')[0];
         Console.log("Bypass Cookie: " + cookie);
-        
-        // Thực hiện lại request với Cookie vừa lấy được bằng fetch theo manual mới
         var response = fetch(url, {
             headers: {
                 "Cookie": cookie,
