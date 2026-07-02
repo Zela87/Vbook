@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "name": "Kho Truyện Chữ Zela",
+    "name": "Kho Truyện Chữ",
     "author": "Zela",
-    "version": 3,
+    "version": 1,
     "source": "https://khotruyenchu.space/",
-    "regexp": "khotruyenchu\\.(sbs|click|online|space)/truyen/.*",
+    "regexp": "khotruyenchu\\.(.*?)/truyen/.*",
     "description": "Đọc truyện trên khotruyenchu.space",
     "locale": "vi_VN",
     "language": "javascript",
@@ -18,5 +18,13 @@
     "search": "search.js",
     "toc": "toc.js",
     "chap": "chap.js"
+  },
+  "config": {
+    "CONFIG_URL": {
+      "title": "Tên miền",
+      "mode": "input",
+      "format": "text",
+      "default": "khotruyenchu.space"
+    }
   }
 }
