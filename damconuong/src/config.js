@@ -1,4 +1,4 @@
-let BASE_URL = 'https://damconuong.shop';
+let BASE_URL = 'https://damconuong.mobi';
 
 try {
     if (CONFIG_URL) BASE_URL = CONFIG_URL;

@@ -2,8 +2,8 @@
   "metadata": {
     "name": "Dâm cô nương",
     "author": "Zela",
-    "version": 5,
-    "source": "https://damconuong.(shop|mom|ceo|lol|net|com)",
+    "version": 6,
+    "source": "https://damconuong.(shop|mom|ceo|lol|net|com|mobi)",
     "regexp": "(www.)?damconuong.*?/truyen/[0-9a-z%-]+/?$",
     "description": "Đọc truyện trên trang Truyện Dâm cô nương",
     "locale": "vi_VN",
